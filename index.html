@@ -1,0 +1,713 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viana Kids - Baju Anak Lucu & Menggemaskan</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fff8fc;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(90deg, #ff9fc5, #a8d8ff);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+        }
+
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #fff2a8;
+        }
+
+        /* HERO */
+        .hero {
+            background:
+                linear-gradient(rgba(255, 157, 198, 0.65), rgba(151, 207, 255, 0.65)),
+                url("https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=1200")
+                no-repeat center center/cover;
+
+            color: white;
+            text-align: center;
+            padding: 7rem 1rem;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.15);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto 1.8rem;
+        }
+
+        .btn-hero {
+            display: inline-block;
+            background-color: #ff6fae;
+            color: white;
+            padding: 0.9rem 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .btn-hero:hover {
+            background-color: #ff4f98;
+            transform: translateY(-3px);
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            color: #e65b9a;
+            text-transform: uppercase;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 3rem;
+        }
+
+        /* PRODUCT GRID */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+            border: 2px solid #ffe1ee;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.13);
+        }
+
+        .badge {
+            position: absolute;
+            margin: 15px;
+            background-color: #ff76ad;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 20px;
+            z-index: 10;
+        }
+
+        .badge.new {
+            background-color: #72bfff;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .category {
+            font-size: 0.8rem;
+            color: #ff73aa;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            color: #e45192;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .size-info {
+            font-size: 0.85rem;
+            color: #555;
+            margin-bottom: 0.8rem;
+            background: #fff0f7;
+            padding: 0.5rem 0.7rem;
+            border-radius: 8px;
+        }
+
+        .price-container {
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            color: #e83e86;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* WHATSAPP */
+        .btn-order {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #25d366;
+            color: white;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn-order:hover {
+            background-color: #128c7e;
+        }
+
+        /* KEUNGGULAN */
+        .features {
+            background: linear-gradient(135deg, #fff0f7, #eaf6ff);
+            padding: 3.5rem 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .feature-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .feature-item h3 {
+            color: #e65b9a;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #e65b9a;
+            color: white;
+            text-align: center;
+            padding: 2.5rem 1rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #fff3a6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul {
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            👗 Viana Kids
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#katalog">Katalog</a></li>
+                <li><a href="#keunggulan">Keunggulan</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <h2>Baju Lucu untuk Si Kecil 💕</h2>
+
+        <p>
+            Temukan koleksi baju anak yang lucu, nyaman, colorful,
+            dan cocok dipakai untuk bermain maupun jalan-jalan bersama keluarga.
+        </p>
+
+        <a href="#katalog" class="btn-hero">
+            🛍️ Lihat Koleksi
+        </a>
+    </section>
+
+
+    <!-- KATALOG -->
+    <main class="container" id="katalog">
+
+        <h2 class="section-title">
+            🌈 Koleksi Baju Anak
+        </h2>
+
+        <p class="section-subtitle">
+            Baju lucu dan menggemaskan untuk membuat si kecil semakin ceria ✨
+        </p>
+
+
+        <div class="product-grid">
+
+            <!-- PRODUK 1 -->
+            <div class="product-card">
+
+                <span class="badge">
+                    Best Seller
+                </span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=500"
+                    alt="Baju Anak Cute Bear"
+                >
+
+                <div class="product-info">
+
+                    <span class="category">
+                        Dress Anak
+                    </span>
+
+                    <h3 class="product-title">
+                        🧸 Cute Bear Dress
+                    </h3>
+
+                    <p class="product-desc">
+                        Dress anak dengan desain beruang yang lucu dan
+                        menggemaskan. Cocok untuk bermain dan jalan-jalan.
+                    </p>
+
+                    <span class="size-info">
+                        👧 Ukuran: 2-3, 4-5, 6-7, 8-9 tahun
+                    </span>
+
+                    <div class="price-container">
+                        <span class="product-price">
+                            Rp 85.000
+                        </span>
+                    </div>
+
+                    <a
+                        href="https://wa.me/6283879800418?text=Halo%20Viana%20Kids,%20saya%20mau%20pesan%20Cute%20Bear%20Dress"
+                        target="_blank"
+                        class="btn-order"
+                    >
+                        📱 Pesan via WA
+                    </a>
+
+                </div>
+            </div>
+
+
+            <!-- PRODUK 2 -->
+            <div class="product-card">
+
+                <span class="badge new">
+                    New Arrival
+                </span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=500"
+                    alt="Baju Anak Pink Bunny"
+                >
+
+                <div class="product-info">
+
+                    <span class="category">
+                        Setelan Anak
+                    </span>
+
+                    <h3 class="product-title">
+                        🐰 Pink Bunny Set
+                    </h3>
+
+                    <p class="product-desc">
+                        Setelan anak warna pink dengan desain bunny yang
+                        manis dan cocok untuk aktivitas sehari-hari.
+                    </p>
+
+                    <span class="size-info">
+                        👧 Ukuran: 2-3, 4-5, 6-7, 8-9 tahun
+                    </span>
+
+                    <div class="price-container">
+                        <span class="product-price">
+                            Rp 75.000
+                        </span>
+                    </div>
+
+                    <a
+                        href="https://wa.me/6283879800418?text=Halo%20Viana%20Kids,%20saya%20mau%20pesan%20Pink%20Bunny%20Set"
+                        target="_blank"
+                        class="btn-order"
+                    >
+                        📱 Pesan via WA
+                    </a>
+
+                </div>
+            </div>
+
+
+            <!-- PRODUK 3 -->
+            <div class="product-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=500"
+                    alt="Baju Anak Rainbow"
+                >
+
+                <div class="product-info">
+
+                    <span class="category">
+                        Kaos Anak
+                    </span>
+
+                    <h3 class="product-title">
+                        🌈 Rainbow Happy Tee
+                    </h3>
+
+                    <p class="product-desc">
+                        Kaos anak dengan gaya colorful dan ceria.
+                        Nyaman digunakan untuk bermain sepanjang hari.
+                    </p>
+
+                    <span class="size-info">
+                        👕 Ukuran: S, M, L, XL
+                    </span>
+
+                    <div class="price-container">
+                        <span class="product-price">
+                            Rp 55.000
+                        </span>
+                    </div>
+
+                    <a
+                        href="https://wa.me/6283879800418?text=Halo%20Viana%20Kids,%20saya%20mau%20pesan%20Rainbow%20Happy%20Tee"
+                        target="_blank"
+                        class="btn-order"
+                    >
+                        📱 Pesan via WA
+                    </a>
+
+                </div>
+            </div>
+
+
+            <!-- PRODUK 4 -->
+            <div class="product-card">
+
+                <span class="badge">
+                    Lucu Banget!
+                </span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=500"
+                    alt="Baju Anak Little Princess"
+                >
+
+                <div class="product-info">
+
+                    <span class="category">
+                        Dress Anak
+                    </span>
+
+                    <h3 class="product-title">
+                        👑 Little Princess Dress
+                    </h3>
+
+                    <p class="product-desc">
+                        Dress cantik dengan tampilan seperti princess.
+                        Cocok digunakan untuk pesta dan acara spesial.
+                    </p>
+
+                    <span class="size-info">
+                        👧 Ukuran: 3-4, 5-6, 7-8, 9-10 tahun
+                    </span>
+
+                    <div class="price-container">
+                        <span class="product-price">
+                            Rp 110.000
+                        </span>
+                    </div>
+
+                    <a
+                        href="https://wa.me/6283879800418?text=Halo%20Viana%20Kids,%20saya%20mau%20pesan%20Little%20Princess%20Dress"
+                        target="_blank"
+                        class="btn-order"
+                    >
+                        📱 Pesan via WA
+                    </a>
+
+                </div>
+            </div>
+
+
+            <!-- PRODUK 5 -->
+            <div class="product-card">
+
+                <span class="badge new">
+                    Terbaru
+                </span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1522771930-78848d9293e8?w=500"
+                    alt="Baju Anak Teddy"
+                >
+
+                <div class="product-info">
+
+                    <span class="category">
+                        Outfit Anak
+                    </span>
+
+                    <h3 class="product-title">
+                        🐻 Teddy Bear Outfit
+                    </h3>
+
+                    <p class="product-desc">
+                        Outfit dengan motif teddy bear yang super cute.
+                        Nyaman dan cocok digunakan saat bermain.
+                    </p>
+
+                    <span class="size-info">
+                        👶 Ukuran: 1-2, 2-3, 4-5, 6-7 tahun
+                    </span>
+
+                    <div class="price-container">
+                        <span class="product-price">
+                            Rp 95.000
+                        </span>
+                    </div>
+
+                    <a
+                        href="https://wa.me/6283879800418?text=Halo%20Viana%20Kids,%20saya%20mau%20pesan%20Teddy%20Bear%20Outfit"
+                        target="_blank"
+                        class="btn-order"
+                    >
+                        📱 Pesan via WA
+                    </a>
+
+                </div>
+            </div>
+
+
+            <!-- PRODUK 6 -->
+            <div class="product-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1519457431-44ccd64a579b?w=500"
+                    alt="Baju Anak Cute Flower"
+                >
+
+                <div class="product-info">
+
+                    <span class="category">
+                        Setelan Anak
+                    </span>
+
+                    <h3 class="product-title">
+                        🌸 Cute Flower Set
+                    </h3>
+
+                    <p class="product-desc">
+                        Setelan anak dengan motif bunga yang cerah dan
+                        cantik. Cocok untuk aktivitas sehari-hari.
+                    </p>
+
+                    <span class="size-info">
+                        👧 Ukuran: 2-3, 4-5, 6-7, 8-9 tahun
+                    </span>
+
+                    <div class="price-container">
+                        <span class="product-price">
+                            Rp 80.000
+                        </span>
+                    </div>
+
+                    <a
+                        href="https://wa.me/6283879800418?text=Halo%20Viana%20Kids,%20saya%20mau%20pesan%20Cute%20Flower%20Set"
+                        target="_blank"
+                        class="btn-order"
+                    >
+                        📱 Pesan via WA
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+
+    <!-- KEUNGGULAN -->
+    <section class="features" id="keunggulan">
+
+        <div class="feature-grid">
+
+            <div class="feature-item">
+                <h3>👗 Model Lucu</h3>
+                <p>
+                    Pilihan model baju anak yang cute, colorful,
+                    dan menggemaskan.
+                </p>
+            </div>
+
+            <div class="feature-item">
+                <h3>💖 Nyaman Dipakai</h3>
+                <p>
+                    Bahan nyaman sehingga si kecil tetap bebas
+                    bergerak dan bermain.
+                </p>
+            </div>
+
+            <div class="feature-item">
+                <h3>📦 Pengiriman Aman</h3>
+                <p>
+                    Pesanan dikemas dengan rapi dan aman sebelum
+                    dikirim kepada pelanggan.
+                </p>
+            </div>
+
+            <div class="feature-item">
+                <h3>💬 Pesan via WhatsApp</h3>
+                <p>
+                    Pemesanan mudah dan praktis langsung melalui
+                    WhatsApp.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer id="kontak">
+
+        <p>
+            <strong>👗 Viana Kids</strong>
+        </p>
+
+        <p>
+            Baju Anak Lucu, Cute & Nyaman 💕
+        </p>
+
+        <p>
+            WhatsApp:
+            <a
+                href="https://wa.me/6283879800418"
+                target="_blank"
+            >
+                0838-7980-0418
+            </a>
+        </p>
+
+        <p style="margin-top: 1rem; color: #ffe8f3;">
+            &copy; 2026 Viana Kids. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
+```
